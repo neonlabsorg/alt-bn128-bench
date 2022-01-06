@@ -1,0 +1,61 @@
+use super::PRECISION;
+use crate::alt_bn128::{BpfError, SyscallAltBn128Addition};
+use crate::significant;
+use solana_rbpf::vm::Config;
+use std::time::Instant;
+use tracing::{error, info};
+
+const BENCHMARK_NAME: &str = "alt_bn128 Addition";
+
+/// Runs the alt bn128 Addition benchmark
+pub fn alt_bn128_bench_addition(inputs: &[Vec<u8>], k: f64) {
+    info!("> Start {} benchmark...", BENCHMARK_NAME);
+    let caller = SyscallAltBn128Addition::new();
+    let config = Config::default();
+    let now = Instant::now();
+    for input in inputs {
+        alt_bn128_run_addition(&caller, &config, input.as_ref());
+    }
+    let d = now.elapsed();
+
+    let nanos = d.as_nanos() as f64;
+    let total = nanos / 1E9;
+    let n = inputs.len() as f64;
+    let average = total / n;
+
+    info!("Finish {}", BENCHMARK_NAME);
+    info!(
+        "{} ({} executions) elapsed {} s.",
+        BENCHMARK_NAME,
+        n,
+        significant::precision(total, PRECISION)
+    );
+    info!(
+        "{} average: {} s. = {} K",
+        BENCHMARK_NAME,
+        significant::precision(average, PRECISION),
+        significant::precision(average / k, PRECISION)
+    );
+}
+
+/// Executes single alt_bn128 Addition call
+#[inline]
+fn alt_bn128_run_addition(syscall: &SyscallAltBn128Addition, config: &Config, input: &[u8]) {
+    use solana_rbpf::error::EbpfError;
+    use solana_rbpf::memory_region::{MemoryMapping, MemoryRegion};
+
+    let memory_mapping = MemoryMapping::new::<BpfError>(
+        vec![MemoryRegion::new_from_slice(input, 0, 0, true)],
+        config,
+    )
+    .unwrap();
+
+    let mut result: Result<u64, EbpfError<BpfError>> = Ok(0);
+    syscall.call(0, 0, 0, 0, 0, &memory_mapping, &mut result);
+
+    if let Err(err) = result {
+        error!("{:?}", err);
+        panic!("{:?}", err);
+    }
+    assert_eq!(result.unwrap(), 0);
+}
