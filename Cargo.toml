@@ -16,6 +16,7 @@ rand_core = { version = "0.6.2", features = ["getrandom"] }
 sha3 = "0.9.1"
 solana_rbpf = "=0.2.8"
 # solana-sdk = "1.6.9"
+# We can't use direct link to solana, because there is no alt_bn128 syscalls now.
 solana-sdk = { path = "../my-solana/sdk" }
 structopt = { version = "0.3.21", features = ["color"] }
 thiserror = "1.0.25"
