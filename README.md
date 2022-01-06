@@ -115,6 +115,6 @@ alt-bn128-bench --count 1000 --size 256 add
 - [] Feature 3
     - [] Nested Feature
 -->
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/neonlabsorg/alt-bn128-bench/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
