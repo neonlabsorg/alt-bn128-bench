@@ -100,11 +100,11 @@ alt-bn128-bench --count 1000 --size 256 add
 
 ## Arguments List
 
-| CLI argument       | CLI (short) | Required | Type    | Default         | Example   | Description                                                                                       |
+| CLI arg       | Short | Req | Type    | Default         | Example   | Description                                                                                       |
 |--------------------|-------------|----------|---------|-----------------|-----------|---------------------------------------------------------------------------------------------------|
-| `--count`          | `-c`        | No       | `usize` | 10000           | `-c 5000` | Number of rounds                                                                                  |
+| `--count`          | `-c`        | No       | `usize` | 10000           | `-c 500` | Number of rounds                                                                                  |
 | `--size`           | `-s`        | No       | `usize` | 10000           | `-s 256`  | Size of random input buffer in bytes                                                              |
-| `add / mul / pair` |             | No       | `Bench` | All benchmarks  | `add`     | We can specify the benchmarks to execute. If field is not set, all benchmarks will be processed.  |
+| `add / mul / pair` |             | No       | `Bench` | -  | `add`     | We can specify the benchmarks to execute. If field is not set, all benchmarks will be processed.  |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
