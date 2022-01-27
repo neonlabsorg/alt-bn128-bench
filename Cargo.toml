@@ -16,11 +16,12 @@ rand_core = { version = "0.6.2", features = ["getrandom"] }
 sha3 = "0.9.1"
 solana_rbpf = "=0.2.8"
 # solana-sdk = "1.6.9"
-solana-sdk = { path = "../my-solana/sdk" }
+solana-sdk = { path = "../syscall-evm-loader-test/syscall-evm-loader-test/neon-solana/sdk" }
 structopt = { version = "0.3.21", features = ["color"] }
 thiserror = "1.0.25"
 tracing = "0.1.26"
 tracing-subscriber = "0.2.18"
+cpu-time = "=1.0.0"
 
 [target.'cfg(not(target_arch = "bpf"))'.dependencies]
 rand = "0.7.0"

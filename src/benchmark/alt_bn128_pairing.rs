@@ -1,8 +1,8 @@
 use super::PRECISION;
 use crate::alt_bn128::{BpfError, SyscallAltBn128Pairing};
 use crate::significant;
+use cpu_time::ProcessTime;
 use solana_rbpf::vm::Config;
-use std::time::Instant;
 use tracing::{error, info};
 
 const BENCHMARK_NAME: &str = "alt_bn128 Pairing";
@@ -12,11 +12,12 @@ pub fn alt_bn128_bench_pairing(inputs: &[Vec<u8>], k: f64) {
     info!("> Start {} benchmark...", BENCHMARK_NAME);
     let caller = SyscallAltBn128Pairing::new();
     let config = Config::default();
-    let now = Instant::now();
+
+    let now = ProcessTime::try_now().expect("Getting process time failed");
     for input in inputs {
         alt_bn128_run_pairing(&caller, &config, input.as_ref());
     }
-    let d = now.elapsed();
+    let d = now.try_elapsed().expect("Getting process time failed");
 
     let nanos = d.as_nanos() as f64;
     let total = nanos / 1E9;
