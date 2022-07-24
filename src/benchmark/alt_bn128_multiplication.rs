@@ -56,7 +56,7 @@ fn alt_bn128_run_multiplication(
     .unwrap();
 
     let mut result: Result<u64, EbpfError<BpfError>> = Ok(0);
-    syscall.call(0, 0, 0, 0, 0, &memory_mapping, &mut result);
+    syscall.call(0, input.len() as u64, 0, 0, 0, &memory_mapping, &mut result);
 
     if let Err(err) = result {
         error!("{:?}", err);
