@@ -10,7 +10,6 @@ use alt_bn128_addition::alt_bn128_bench_addition;
 use alt_bn128_multiplication::alt_bn128_bench_multiplication;
 use alt_bn128_pairing::alt_bn128_bench_pairing;
 use keccak::keccak_bench;
-use solana_sdk::alt_bn128::prelude::*;
 use tracing::info;
 
 pub const PRECISION: usize = 4;
@@ -60,7 +59,7 @@ fn generate_buffers_add(count: usize) -> Vec<Vec<u8>> {
     let input = array_bytes::hex2bytes_unchecked(input_pattern);
     let mut buffers: Vec<Vec<u8>> = Vec::with_capacity(count);
     for _ in 0..count {
-        buffers.push(input);
+        buffers.push(input.clone());
     }
     buffers
 }
@@ -70,7 +69,7 @@ fn generate_buffers_mul(count: usize) -> Vec<Vec<u8>> {
     let input = array_bytes::hex2bytes_unchecked(input_pattern);
     let mut buffers: Vec<Vec<u8>> = Vec::with_capacity(count);
     for _ in 0..count {
-        buffers.push(input);
+        buffers.push(input.clone());
     }
     buffers
 }
@@ -80,7 +79,7 @@ fn generate_buffers_pair(count: usize) -> Vec<Vec<u8>> {
     let input = array_bytes::hex2bytes_unchecked(input_pattern);
     let mut buffers: Vec<Vec<u8>> = Vec::with_capacity(count);
     for _ in 0..count {
-        buffers.push(input);
+        buffers.push(input.clone());
     }
     buffers
 }

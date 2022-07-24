@@ -12,11 +12,11 @@ These benchmarks allow us to approximately define the amount of data in bytes fo
 
 ## Results
 
-| Operation      | like Keccak Hash of        |
-|----------------|----------------------------|
-| Addition       | ~120 bytes                 |
-| Multiplication | ~200 bytes                 |
-| Pairing        | ~110 bytes                 |
+| Operation      | like Keccak Hash of |
+|----------------|---------------------|
+| Addition       | ~400 bytes          |
+| Multiplication | ~12'000 bytes       |
+| Pairing        | ~140'000 bytes      |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -26,43 +26,17 @@ These benchmarks allow us to approximately define the amount of data in bytes fo
 
 | Operation | Rounds | Size  | Pure K-ratio | K-ratio |
 |-----------|--------|-------|--------------|---------|
-| Addition  | 1000   | 120   | 0.8864 K     | 0.8864  |
-| Addition  | 10000  | 120   | 0.7878 K     | 0.7878  |
-| Addition  | 100000 | 120   | 0.8681 K     | 0.8681  |
-| Addition  | 1000   | 1200  | 0.09466 K    | 0.9466  |
-| Addition  | 10000  | 1200  | 0.09977 K    | 0.9977  |
-| Addition  | 100000 | 1200  | 0.1001 K     | 1.001   |
-| Addition  | 1000   | 12000 | 0.01135 K    | 1.135   |
-| Addition  | 10000  | 12000 | 0.01013 K    | 1.013   |
-| Addition  | 100000 | 12000 | 0.01017 K    | 1.017   |
+
 
 ### Multiplication
 
 | Operation | Rounds | Size  | Pure K-ratio | K-ratio |
 |-----------|--------|-------|--------------|---------|
-| Addition  | 1000   | 200   | 0.7819 K     | 0.7819  |
-| Addition  | 10000  | 200   | 0.6341 K     | 0.6341  |
-| Addition  | 100000 | 200   | 0.7509 K     | 0.7509  |
-| Addition  | 1000   | 2000  | 0.1053 K     | 1.053   |
-| Addition  | 10000  | 2000  | 0.1000 K     | 1.000   |
-| Addition  | 100000 | 2000  | 0.1033 K     | 1.033   |
-| Addition  | 1000   | 20000 | 0.01075 K    | 1.075   |
-| Addition  | 10000  | 20000 | 0.01062 K    | 1.062   |
-| Addition  | 100000 | 20000 | 0.009835 K   | 0.9835  |
 
 ### Pairing
 
 | Operation | Rounds | Size  | Pure K-ratio | K-ratio |
 |-----------|--------|-------|--------------|---------|
-| Addition  | 1000   | 110   | 0.3633 K     | 0.7819  |
-| Addition  | 10000  | 110   | 0.5905 K     | 0.6341  |
-| Addition  | 100000 | 110   | 1.121 K      | 0.7509  |
-| Addition  | 1000   | 1100  | 0.04500 K    | 1.053   |
-| Addition  | 10000  | 1100  | 0.09270 K    | 1.000   |
-| Addition  | 100000 | 1100  | 0.1273 K     | 1.033   |
-| Addition  | 1000   | 11000 | 0.007706 K   | 1.075   |
-| Addition  | 10000  | 11000 | 0.01075 K    | 1.062   |
-| Addition  | 100000 | 11000 | 0.01727 K    | 0.9835  |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
