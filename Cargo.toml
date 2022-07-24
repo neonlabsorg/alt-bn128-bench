@@ -5,6 +5,7 @@ authors = ["NeonLabs Maintainers <maintainers@cyber-core.dev>"]
 edition = "2018"
 
 [dependencies]
+array-bytes = "=1.4.1"
 borsh = "0.8.1"
 borsh-derive = "0.8.1"
 bs58 = "0.3.1"
